@@ -13,6 +13,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {TranslateModule} from "@ngx-translate/core";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -21,17 +23,19 @@ import {TranslateModule} from "@ngx-translate/core";
     QuestionAndAnswerComponent,
     FinishComponent
   ],
-    imports: [
-        CommonModule,
-        GameRoutingModule,
-        SharedModule,
-        MatSlideToggleModule,
-        MatDividerModule,
-        MatCardModule,
-        MatListModule,
-        MatTooltipModule,
-        TranslateModule,
-    ]
+  imports: [
+    CommonModule,
+    GameRoutingModule,
+    SharedModule,
+    MatSlideToggleModule,
+    MatDividerModule,
+    MatCardModule,
+    MatListModule,
+    MatTooltipModule,
+    TranslateModule,
+    MatExpansionModule,
+    MatIconModule,
+  ]
 })
 export class GameModule {
 }

@@ -1,13 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
   UntypedFormArray,
   UntypedFormControl,
   UntypedFormGroup,
   Validators
 } from "@angular/forms";
+import {MatExpansionPanel} from "@angular/material/expansion";
 
 @Component({
   selector: 'app-game',
@@ -16,8 +14,9 @@ import {
 })
 export class GameComponent implements OnInit {
   form: UntypedFormGroup
+  @ViewChildren(MatExpansionPanel) panels: QueryList<MatExpansionPanel> | any;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor() {
     this.form = new UntypedFormGroup({
       setting: new UntypedFormGroup({
         gameName: new UntypedFormControl(null, [Validators.required, Validators.minLength(6)]),
@@ -59,9 +58,18 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  expandAll() {
+    this.panels.forEach((panel: any) => panel.open());
+  }
+
+  collapseAll() {
+    this.panels.forEach((panel: any) => panel.close());
+  }
+
   newQuestionAndAnswer() {
     this.question.push(new UntypedFormGroup({
-      question: new FormControl(null, [Validators.required, Validators.minLength(10)]),
+      question: new UntypedFormControl(null, [Validators.required, Validators.minLength(10)]),
       answers: new UntypedFormArray([
         new UntypedFormGroup({
           answerText: new UntypedFormControl(null, [Validators.required]),
