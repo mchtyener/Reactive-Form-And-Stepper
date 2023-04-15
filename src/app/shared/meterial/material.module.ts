@@ -6,6 +6,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ColorPickerModule} from "ngx-color-picker";
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import {ColorPickerModule} from "ngx-color-picker";
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   exports: [
     MatStepperModule,
@@ -23,7 +25,8 @@ import {ColorPickerModule} from "ngx-color-picker";
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    ColorPickerModule
+    ColorPickerModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule {

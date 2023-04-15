@@ -1,28 +1,39 @@
-<div class="container">
-  <form [formGroup]="form">
-    <mat-stepper linear #stepper>
-      <mat-step [stepControl]="setting">
-        <div class="mb-2">
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
-        </div>
-        <app-game-settings [gameSettings]="form"></app-game-settings>
-        <div class="mt-2">
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
-        </div>
-      </mat-step>
-      <mat-step [stepControl]="question">
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </mat-step>
-      <mat-step>
-        <app-finish></app-finish>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-        </div>
-      </mat-step>
-    </mat-stepper>
-  </form>
-  <button mat-button color="primary" (click)="getValue()">Value</button>
-</div>
+<form [formGroup]="form">
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="setting">
+      <div class="mb-2">
+        <button mat-raised-button color="primary" matStepperNext>{{ 'Button.Next' | translate}}</button>
+      </div>
+      <app-game-settings [gameSettings]="form"></app-game-settings>
+      <div class="mt-2">
+        <button mat-raised-button color="primary" matStepperNext>{{ 'Button.Next' | translate}}</button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="question">
+      <div class="d-flex align-items-center mb-4">
+        <button mat-raised-button color="primary" matStepperPrevious>{{ 'Button.Back' | translate}}</button>
+        <button class="ms-4" mat-raised-button color="primary" matStepperNext>{{ 'Button.Next' | translate}}</button>
+      </div>
+      <ng-container *ngFor="let question of question.controls; let i=index">
+        <h2 class="title title-m"> {{i + 1}}. {{ 'CreateGame.Question' | translate }}</h2>
+        <app-question-and-answer [question]="question"></app-question-and-answer>
+      </ng-container>
+
+      <button mat-raised-button color="warn" class="d-block mx-auto col-4 py-3 h-auto mt-3"
+              (click)="newQuestionAndAnswer()">
+        <span>{{ 'CreateGame.AddQuestion' | translate }}</span>
+      </button>
+
+      <div class="d-flex align-items-center mt-4">
+        <button mat-raised-button color="primary" matStepperPrevious>{{ 'Button.Back' | translate}}</button>
+        <button class="ms-4" mat-raised-button color="primary" matStepperNext>{{ 'Button.Next' | translate}}</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <app-finish></app-finish>
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>{{ 'Button.Back' | translate}}</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>

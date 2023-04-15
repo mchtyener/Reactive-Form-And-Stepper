@@ -1,22 +1,15 @@
 <ng-container [formGroup]="form">
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-lg-6 col-md-6">
       <mat-form-field appearance="outline" class="example-full-width col-12">
-        <mat-label>Game Name</mat-label>
-        <input type="text" matInput formControlName="gameName">
-        <mat-error
-          *ngIf="(gf.gameName.invalid || gf.gameName.errors?.required)">
-          Please enter a valid game name
-        </mat-error>
-        <mat-error *ngIf="gf.gameName.errors?.required">
-          Game name is <strong>required</strong>
-        </mat-error>
+        <mat-label>{{ 'CreateGame.QuizTitle' | translate }}</mat-label>
+        <input placeholder="{{ 'CreateGame.QuizName' | translate }}" type="text" matInput formControlName="gameName">
       </mat-form-field>
     </div>
     <div class="col-md-6">
       <ng-container *ngIf="gameTimeShow===true">
         <mat-form-field appearance="outline" class="example-full-width col-12">
-          <mat-label>Game Time</mat-label>
+          <mat-label>{{ 'CreateGame.Time' | translate }}</mat-label>
           <input type="number" min="0" matInput value="0" formControlName="gameTime">
         </mat-form-field>
       </ng-container>
@@ -24,78 +17,87 @@
     <ng-container *ngIf="leaderBoardShow===true">
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="example-full-width col-12">
-          <mat-label>LeaderBoard Count</mat-label>
+          <mat-label> {{ 'CreateGame.LeaderboardLimit' | translate }}</mat-label>
           <input type="number" min="0" matInput value="0" formControlName="leaderBoard">
         </mat-form-field>
       </div>
     </ng-container>
   </div>
 
+  <hr>
   <div class="card">
+    <div class="card-header">
+      <h3 class="m-0 p-0 fw-bold"> {{ 'CreateGame.Features' | translate }}</h3>
+    </div>
     <div class="card-body">
       <div class="row">
         <ng-container formGroupName="gameType">
           <div class="col-md-6">
             <mat-slide-toggle class="d-block mb-3" formControlName="userRegisterLogin"
                               (change)="toggle($event,'Register')">
-              ByRegistering
+              {{ 'CreateGame.ByRegistering' | translate }}
             </mat-slide-toggle>
           </div>
           <div class="col-md-6">
             <mat-slide-toggle class="d-block mb-3" formControlName="userNickNameLogin"
                               (change)="toggle($event,'NickName')">
-              LoginWithNickname
+              {{ 'CreateGame.LoginWithNickname' | translate }}
             </mat-slide-toggle>
           </div>
         </ng-container>
         <div class="col-md-6">
           <mat-slide-toggle class="d-block mb-3" formControlName="leaderBoardShow"
                             (change)="showHide($event,'leaderBoardShow')">
-            leaderBoardShow
+            {{ 'CreateGame.leaderBoardShow' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
           <mat-slide-toggle class="d-block mb-3" formControlName="gameTimeShow"
                             (change)="showHide($event,'gameTimeShow')">
-            gameTimeShow
+            {{ 'CreateGame.gameTimeShow' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
 
-          <mat-slide-toggle class="d-block mb-3" formControlName="showPoint"> ShowPoint
+          <mat-slide-toggle class="d-block mb-3" formControlName="showPoint"> {{ 'CreateGame.ShowPoint' | translate }}
           </mat-slide-toggle>
 
         </div>
 
         <div class="col-md-6">
-          <mat-slide-toggle class="d-block mb-3" formControlName="EliminatedForWrongAnswer">WrongAnswer
+          <mat-slide-toggle class="d-block mb-3"
+                            formControlName="EliminatedForWrongAnswer">{{ 'CreateGame.WrongAnswer' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
-          <mat-slide-toggle class="d-block mb-3" formControlName="ModAnswerShow">ShowAnswerButton
+          <mat-slide-toggle class="d-block mb-3"
+                            formControlName="ModAnswerShow">{{ 'CreateGame.ShowAnswerButton' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
-          <mat-slide-toggle class="d-block mb-3" formControlName="UserCorrectShowAnswer">ShowCorrectAnswer
+          <mat-slide-toggle class="d-block mb-3"
+                            formControlName="UserCorrectShowAnswer">{{ 'CreateGame.ShowCorrectAnswer' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
-          <mat-slide-toggle class="d-block mb-3" formControlName="UserQuestionAndAnswerShow">QuestionAndAnswerButtonShow
+          <mat-slide-toggle class="d-block mb-3"
+                            formControlName="UserQuestionAndAnswerShow">{{ 'CreateGame.QuestionAndAnswerButtonShow' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
-          <mat-slide-toggle class="d-block mb-3" formControlName="ModTagoPinShow">PinShow
+          <mat-slide-toggle class="d-block mb-3" formControlName="ModTagoPinShow">{{ 'CreateGame.PinShow' | translate }}
           </mat-slide-toggle>
         </div>
 
         <div class="col-md-6">
-          <mat-slide-toggle class="d-block mb-3" formControlName="RateTheGame">MakeAnAssessment
+          <mat-slide-toggle class="d-block mb-3"
+                            formControlName="RateTheGame">{{ 'CreateGame.MakeAnAssessment' | translate }}
           </mat-slide-toggle>
         </div>
       </div>

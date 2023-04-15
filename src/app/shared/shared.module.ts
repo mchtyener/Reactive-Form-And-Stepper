@@ -6,7 +6,7 @@ import {MaterialModule} from "./meterial/material.module";
   declarations: [],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [
     CommonModule,

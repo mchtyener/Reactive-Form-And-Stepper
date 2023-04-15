@@ -1,5 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  UntypedFormArray,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from "@angular/forms";
 
 @Component({
   selector: 'app-game',
@@ -30,11 +38,41 @@ export class GameComponent implements OnInit {
           userNickNameLogin: new UntypedFormControl(false),
         }),
       }),
-      question_answer: new UntypedFormGroup({})
+      question_answer: new UntypedFormArray([
+        new UntypedFormGroup({
+          question: new UntypedFormControl('', [Validators.required]),
+          answers: new UntypedFormArray([
+            new UntypedFormGroup({
+              answerText: new UntypedFormControl('', [Validators.required]),
+              answerTruFalse: new UntypedFormControl(true, [Validators.required]),
+            }),
+            new UntypedFormGroup({
+              answerText: new UntypedFormControl('', [Validators.required]),
+              answerTruFalse: new UntypedFormControl(false, [Validators.required]),
+            })
+          ]),
+        })
+      ])
     });
   }
 
   ngOnInit() {
+  }
+
+  newQuestionAndAnswer() {
+    this.question.push(new UntypedFormGroup({
+      question: new FormControl(null, [Validators.required, Validators.minLength(10)]),
+      answers: new UntypedFormArray([
+        new UntypedFormGroup({
+          answerText: new UntypedFormControl(null, [Validators.required]),
+          answerTruFalse: new UntypedFormControl(true, [Validators.required]),
+        }),
+        new UntypedFormGroup({
+          answerText: new UntypedFormControl(null, [Validators.required]),
+          answerTruFalse: new UntypedFormControl(false, [Validators.required]),
+        })
+      ])
+    }));
   }
 
   getValue() {
@@ -46,6 +84,6 @@ export class GameComponent implements OnInit {
   }
 
   get question() {
-    return this.form.controls['question_answer']
+    return this.form.controls['question_answer'] as UntypedFormArray
   }
 }

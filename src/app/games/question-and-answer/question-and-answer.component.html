@@ -1,1 +1,46 @@
-<p>question-and-answer works!</p>
+<ng-container [formGroup]="question">
+
+  <div class="col-12">
+    <mat-form-field appearance="outline" class="example-full-width col-12">
+      <mat-label>{{ 'CreateGame.QuizTitle' | translate }}</mat-label>
+      <textarea placeholder="{{ 'CreateGame.QuizName' | translate }}" type="text" rows="5" cols="40" maxlength="1000"
+                matInput formControlName="question">
+      </textarea>
+    </mat-form-field>
+  </div>
+  <ng-container [formGroup]="answer" *ngFor="let answer of answers; let i = index">
+    <div class="col-12 row">
+      <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+        <mat-label class="mb-1 " [ngClass]="{'d-flex align-items-center justify-content-between':i>1}">
+          <span>{{i + 1}}. {{ 'CreateGame.Answer' | translate }}</span>
+          <a *ngIf="i>1"
+             (click)="removeAnswer(i,answer.controls.answerTruFalse.value)">{{ 'CreateGame.Remove' | translate }}
+          </a>
+        </mat-label>
+        <mat-form-field class="col-12 mt-1" appearance="outline">
+          <input formControlName="answerText" matInput
+                 placeholder=" {{ 'CreateGame.EnterTheAnswer' | translate }}">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-2 col-md-10 col-sm-2 col-2 d-flex align-items-center justify-content-start ">
+        <mat-slide-toggle value="" formControlName="answerTruFalse" (change)="change(i)">
+          <ng-container *ngIf="answer.controls.answerTruFalse.value === true">
+            {{ 'CreateGame.true' | translate }}
+          </ng-container>
+          <ng-container *ngIf="answer.controls.answerTruFalse.value === false">
+            {{ 'CreateGame.false' | translate }}
+          </ng-container>
+        </mat-slide-toggle>
+      </div>
+
+    </div>
+
+
+  </ng-container>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+    <a class="d-flex align-items-center justify-content-center addQuestionBtn" (click)="answerAdd()"><span
+      class="ms-2">{{ 'CreateGame.AddAnswer' | translate }}</span>
+    </a>
+  </div>
+</ng-container>
+
