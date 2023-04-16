@@ -7,6 +7,7 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  selected: any;
 
 
   constructor(public translate: TranslateService) {
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
     translate.setDefaultLang('en');
 
     const browserLang: any = translate.getBrowserLang();
+    this.selected = browserLang
     translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
   }
 

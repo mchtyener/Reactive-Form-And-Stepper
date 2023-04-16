@@ -1,7 +1,7 @@
 <div class="container">
   <mat-form-field class="mt-5" appearance="outline">
     <mat-label> {{ 'HOME.SELECT' | translate }} </mat-label>
-    <mat-select #langSelect (selectionChange)="translate.use(langSelect.value)">
+    <mat-select [(value)]="selected" #langSelect (selectionChange)="translate.use(langSelect.value)">
       <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}
       </mat-option>
     </mat-select>
