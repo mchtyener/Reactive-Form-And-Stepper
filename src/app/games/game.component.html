@@ -21,11 +21,17 @@
                 (click)="collapseAll()">{{'CreateGame.Collapse' | translate}}</button>
       </div>
       <ng-container *ngFor="let question of question.controls; let i=index">
-        <div class="my-4">
+        <div class="my-4 position-relative">
+          <button class="removeBtn" *ngIf="i>2" mat-stroked-button color="primary" (click)="removeQuestion(i)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+                      class="d-flex align-items-center justify-content-center m-0 p-0" fontIcon="close"></mat-icon>
+          </button>
           <mat-accordion class="example-headers-align">
             <mat-expansion-panel [expanded]="true">
-              <mat-expansion-panel-header class="d-flex align-items-center justify-content-start">
-                <h2 class="title m-0 p-0"> {{i + 1}}. {{ 'CreateGame.Question' | translate }}</h2>
+              <mat-expansion-panel-header class="d-flex align-items-center justify-content-between">
+                <mat-panel-title>
+                  <h2 class="m-0 p-0"> {{i + 1}}. {{ 'CreateGame.Question' | translate }}</h2>
+                </mat-panel-title>
               </mat-expansion-panel-header>
               <app-question-and-answer [question]="question"></app-question-and-answer>
             </mat-expansion-panel>

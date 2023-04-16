@@ -7,6 +7,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ColorPickerModule} from "ngx-color-picker";
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ],
   exports: [
     MatStepperModule,
@@ -26,7 +28,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     ReactiveFormsModule,
     ColorPickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ]
 })
 export class MaterialModule {

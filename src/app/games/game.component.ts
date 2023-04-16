@@ -13,10 +13,18 @@ import {MatExpansionPanel} from "@angular/material/expansion";
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  form: UntypedFormGroup
+  form: UntypedFormGroup | any;
   @ViewChildren(MatExpansionPanel) panels: QueryList<MatExpansionPanel> | any;
 
   constructor() {
+    this.questionForm()
+    this.questionAnser()
+  }
+
+  ngOnInit() {
+  }
+
+  questionForm() {
     this.form = new UntypedFormGroup({
       setting: new UntypedFormGroup({
         gameName: new UntypedFormControl(null, [Validators.required, Validators.minLength(6)]),
@@ -37,34 +45,8 @@ export class GameComponent implements OnInit {
           userNickNameLogin: new UntypedFormControl(false),
         }),
       }),
-      question_answer: new UntypedFormArray([
-        new UntypedFormGroup({
-          question: new UntypedFormControl('', [Validators.required]),
-          answers: new UntypedFormArray([
-            new UntypedFormGroup({
-              answerText: new UntypedFormControl('', [Validators.required]),
-              answerTruFalse: new UntypedFormControl(true, [Validators.required]),
-            }),
-            new UntypedFormGroup({
-              answerText: new UntypedFormControl('', [Validators.required]),
-              answerTruFalse: new UntypedFormControl(false, [Validators.required]),
-            })
-          ]),
-        })
-      ])
+      question_answer: new UntypedFormArray([])
     });
-  }
-
-  ngOnInit() {
-  }
-
-
-  expandAll() {
-    this.panels.forEach((panel: any) => panel.open());
-  }
-
-  collapseAll() {
-    this.panels.forEach((panel: any) => panel.close());
   }
 
   newQuestionAndAnswer() {
@@ -83,8 +65,26 @@ export class GameComponent implements OnInit {
     }));
   }
 
-  getValue() {
-    console.log(this.form.value)
+  questionAnser() {
+    let i = 0;
+    while (i < 3) {
+      let item = new UntypedFormGroup({
+        question: new UntypedFormControl('', [Validators.required]),
+        answers: new UntypedFormArray([
+          new UntypedFormGroup({
+            answerText: new UntypedFormControl('', [Validators.required]),
+            answerTruFalse: new UntypedFormControl(true, [Validators.required]),
+          }),
+          new UntypedFormGroup({
+            answerText: new UntypedFormControl('', [Validators.required]),
+            answerTruFalse: new UntypedFormControl(false, [Validators.required]),
+          })
+        ]),
+      })
+      this.question.push(item)
+      i++;
+    }
+    //bunu for ile yapabilirdim ama farklılık olsun die while döngüsü ile yaptım ille while değil  do-while ile de olurdu.
   }
 
   get setting() {
@@ -93,5 +93,22 @@ export class GameComponent implements OnInit {
 
   get question() {
     return this.form.controls['question_answer'] as UntypedFormArray
+  }
+
+  expandAll() {
+    this.panels.forEach((panel: any) => panel.open());
+  }
+
+  collapseAll() {
+    this.panels.forEach((panel: any) => panel.close());
+  }
+
+  getValue() {
+    console.log(this.form.value)
+  }
+
+
+  removeQuestion(index: number) {
+    this.question.removeAt(index);
   }
 }

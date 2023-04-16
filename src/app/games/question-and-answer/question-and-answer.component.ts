@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
+import {BaseComponent} from "../../base.component";
+
 
 @Component({
   selector: 'app-question-and-answer',

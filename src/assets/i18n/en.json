@@ -1,89 +1,7 @@
 {
   "HOME": {
-    "SELECT": "Change Language"
-  },
-  "SETTINGS": {
-    "Profile": "Profile",
-    "MyReport": "My Report",
-    "MyGames": "My Games",
-    "MyGifts": "My Gifts",
-    "Link": "Link",
-    "ProfileImage": "Profile Image",
-    "UploadImage": "Upload Image",
-    "FirsName": "Firs Name",
-    "PhoneNumber": "Phone Number",
-    "LastName": "Last Name",
-    "OrganizeName": "Organize Name",
-    "BusinessPackage": "Business Package",
-    "UpgradeTago": "Upgrade Tago",
-    "EditImg": "Edit Img",
-    "ImageCrop": "Image Crop!",
-    "Save": "Save",
-    "updateBtn": "Update",
-    "ToTop": "Scroll To Top"
-  },
-  "MENU": {
-    "Home": "Home",
-    "CreateGame": "Create Game",
-    "GameList": "Game List",
-    "CreateUsers": "Create Users",
-    "Settings": "Settings",
-    "Organisation": "Organisation"
-  },
-  "USERS": {
-    "UserManagement": "User Management",
-    "NameSurname": "Name Surname",
-    "Email": "Email",
-    "ImportUsers": "Import Users",
-    "AddUsers": "Add Users",
-    "Name": "Name",
-    "UserName": "User Name",
-    "EnterYourPassword": "Enter Your Password",
-    "ConfirmPassword": "ConfirmPassword",
-    "Cancel": "Cancel",
-    "Save": "Save",
-    "UpdateUser": "Update User",
-    "UserLastName": "User Last Name",
-    "Password": "Password"
-  },
-  "REQUIRED": {
-    "NameIsRequired": "Name is required",
-    "EmailIsRequired": "Email is required",
-    "EnterAValidEmailAddress": "Enter a valid email address",
-    "UserNameIsRequired": "User Name is required",
-    "UserNameIsNotAvailable": "User Name is not available",
-    "PasswordIsRequired": "Password is required",
-    "ConfirmPasswordIsRequired": "Confirm Password is requirede",
-    "PasswordsDoesnotMatch": "Passwords doesnot match",
-    "PasswordCharacter": "Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number"
-  },
-  "WarningTexts": {
-    "PictureType": "Only Images are allowed ( JPG | PNG )",
-    "SuccessfullyImg": "Image cropping completed successfully.",
-    "maxImgUpload": "Maximum size allowed is",
-    "RemoveSuccessfullyImg": "Image deleted successfully",
-    "addImg": "Avatar image uploaded."
-  },
-  "CreateQuizzes": {
-    "Quizzes": "Quizzes",
-    "Filter": "Filter",
-    "SearchInQuizzesFilter": "Search in Quizzes filter",
-    "CreateQuiz": "Create a Quiz",
-    "Preview": "Priview",
-    "Questions": "Questions",
-    "QuizWasCompleted": "Quiz was completed",
-    "Join": "Join",
-    "Report": "Report",
-    "Update": "Update",
-    "Users": "Users",
-    "Clone": "Clone",
-    "Remove": "Remove"
-  },
-  "Pagination": {
-    "First": "First",
-    "Previous": "Previous",
-    "Next": "Next",
-    "Last": "Last"
+    "TITLE": "Hello Angular with ngx-translate!",
+    "SELECT": "Change language"
   },
   "CreateGame": {
     "Title": "Create a Quiz",
@@ -110,7 +28,7 @@
     "LoginWithNickname": "Users log in with a pseudonym without registering",
     "ShowCorrectAnswer": "Let the user see the correct answer after answering",
     "QuestionAndAnswerButtonShow": "Let the question and stylish texts appear on the user screen",
-    "PinShow": "Let the Tago input pin appear on the moderator screen.",
+    "PinShow": "Let the input pin appear on the moderator screen.",
     "MakeAnAssessment": "Let the game be evaluated at the end of the quiz",
     "AddQuestion": "Add Question",
     "AddAnswer": "Add Answer",
@@ -141,6 +59,13 @@
     "true": "Correct Answer",
     "false": "Wrong  Answer",
     "ExpandAll": "Expand All",
-    "CollapseAll": "Collapse All"
+    "CollapseAll": "Collapse All",
+    "Remove": "Delete Answer Option",
+    "Expand": "Expand All",
+    "Collapse": "Collapse All"
+  },
+  "Button": {
+    "Next": "Next",
+    "Back": "Back"
   }
 }
